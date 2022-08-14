@@ -4,8 +4,8 @@ import Form from 'react-bootstrap/Form';
 
 
 const Converter =()=>{
-    const [fromUnit,setFromUnit]=useState("kg")
-    const [toUnit,setToUnit]=useState("g")
+    const [fromUnit,setFromUnit]=useState("Kilogram(kg)")
+    const [toUnit,setToUnit]=useState("Gram(g)")
     const [value,setValue]= useState("")
     const [result,setResult]= useState("")
     const [currentConversion, setCurrentConversion]= useState("1")
@@ -17,16 +17,16 @@ const Converter =()=>{
       setValue("")
       setResult("")
       if(value=='1'){
-        setFromUnit('kg')
-        setToUnit('g')
+        setFromUnit('Kilogram(kg)')
+        setToUnit('Gram(g)')
       }
       else if(value=='2'){
-        setFromUnit('kg')
-        setToUnit('dag')
+        setFromUnit('Kilogram(kg)')
+        setToUnit('Decagram(dag)')
       }
       else if(value=='3'){
-        setFromUnit('g')
-        setToUnit('dag')
+        setFromUnit('Gram(g)')
+        setToUnit('Decagram(dag)')
 
       }
     }
@@ -73,12 +73,11 @@ const Converter =()=>{
     return (
         <Form>
             <Form.Group className="mb-3" controlId="conversion">
-                <Form.Label>Select Your Conversion</Form.Label><br></br>
-                <Form.Label>Units:Kilogram(kg),Gram(g),Decagram(dag)</Form.Label>
+                <Form.Label>Select Your Conversion</Form.Label>
                 <Form.Select aria-label="Default select example" onChange={onSelectChange} >                   
-                    <option value="1">kg-g</option>
-                    <option value="2">kg-dag</option>
-                    <option value="3">g-dag</option>
+                    <option value="1">Kilogram(kg)-Gram(g)</option>
+                    <option value="2">Kilogram(kg)-Decagram(dag)</option>
+                    <option value="3">Gram(g)-Decagram(dag)</option>
                 </Form.Select>
                 
             </Form.Group>
