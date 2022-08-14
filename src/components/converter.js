@@ -4,8 +4,8 @@ import Form from 'react-bootstrap/Form';
 
 
 const Converter =()=>{
-    const [fromUnit,setFromUnit]=useState("KG")
-    const [toUnit,setToUnit]=useState("LBS")
+    const [fromUnit,setFromUnit]=useState("kg")
+    const [toUnit,setToUnit]=useState("g")
     const [value,setValue]= useState("")
     const [result,setResult]= useState("")
     const [currentConversion, setCurrentConversion]= useState("1")
@@ -17,16 +17,16 @@ const Converter =()=>{
       setValue("")
       setResult("")
       if(value=='1'){
-        setFromUnit('KG')
-        setToUnit('LBS')
+        setFromUnit('kg')
+        setToUnit('g')
       }
       else if(value=='2'){
-        setFromUnit('KM')
-        setToUnit('METER')
+        setFromUnit('kg')
+        setToUnit('dag')
       }
       else if(value=='3'){
-        setFromUnit('DOLLARS')
-        setToUnit('INDIAN RUPEES')
+        setFromUnit('g')
+        setToUnit('dag')
 
       }
     }
@@ -38,13 +38,13 @@ const Converter =()=>{
       }
       else {
         if(currentConversion=='1'){
-          setResult(parseFloat(event.target.value)*2.20462)
-        }
-        else if(currentConversion=='2'){
           setResult(parseFloat(event.target.value)*1000)
         }
+        else if(currentConversion=='2'){
+          setResult(parseFloat(event.target.value)*100)
+        }
         else if(currentConversion=='3'){
-          setResult(parseFloat(event.target.value)*76.54)
+          setResult(parseFloat(event.target.value)*0.1)
         }
 
       }
@@ -57,13 +57,13 @@ const Converter =()=>{
       }
       else {
         if(currentConversion=='1'){
-          setValue(parseFloat(event.target.value)/2.20462)
-        }
-        else if(currentConversion=='2'){
           setValue(parseFloat(event.target.value)/1000)
         }
+        else if(currentConversion=='2'){
+          setValue(parseFloat(event.target.value)/100)
+        }
         else if(currentConversion=='3'){
-          setValue(parseFloat(event.target.value)/76.54)
+          setValue(parseFloat(event.target.value)/0.1)
         }
       }
       
@@ -73,11 +73,12 @@ const Converter =()=>{
     return (
         <Form>
             <Form.Group className="mb-3" controlId="conversion">
-                <Form.Label>Select Your Conversion</Form.Label>
+                <Form.Label>Select Your Conversion</Form.Label><br></br>
+                <Form.Label>Units:Kilogram(kg),Gram(g),Decagram(dag)</Form.Label>
                 <Form.Select aria-label="Default select example" onChange={onSelectChange} >                   
-                    <option value="1">KG-LBS</option>
-                    <option value="2">KM-METER</option>
-                    <option value="3">DOLLARS-INDIAN RUPEES</option>
+                    <option value="1">kg-g</option>
+                    <option value="2">kg-dag</option>
+                    <option value="3">g-dag</option>
                 </Form.Select>
                 
             </Form.Group>
